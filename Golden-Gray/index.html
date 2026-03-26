@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Gray</title>
+<link rel="shortcut icon" href="Golden-Gray-Logo-Recortado.png" type="image/x-icon">
+    
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet"/>
+
+    <!-- Metaetiquetas de Open Graph -->
+    <meta property="og:title" content="Catálogo de Electrodomésticos - 2026">
+    <meta property="og:description" content="Descubre nuestra amplia gama de televisores, aires acondicionados, refrigeradores, cocinas, lavadoras y más. Marcas reconocidas con garantía incluida.">
+    <meta property="og:image" content="#">
+    <meta property="og:url" content="https://newjosetbj2005-cyber.github.io/catalogo-interactivo-2026/">
+    <meta property="og:type" content="website">
+
+    <!-- Metaetiquetas de Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catálogo de Electrodomésticos - 2026">
+    <meta name="twitter:description" content="Descubre nuestra amplia gama de televisores, aires acondicionados, refrigeradores, cocinas, lavadoras y más. Marcas reconocidas con garantía incluida.">
+    <meta name="twitter:image" content="https://i.ibb.co/5XTQcvP8/Portada-Catalogo-Productos-2026.jpg">
+    <meta name="twitter:url" content="https://newjosetbj2005-cyber.github.io/catalogo-interactivo-2026/">
+
+<!-- ══════════════════════════════════════════
+     FUENTES
+     Playfair Display → títulos elegantes
+     DM Sans         → cuerpo limpio y legible
+══════════════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════
+   VARIABLES GLOBALES
+   Paleta: blanco/gris dominante + mostaza acento
+   ► Para cambiar colores de toda la página, editar aquí.
+══════════════════════════════════════════ */
+:root {
+  --white:          #FFFFFF;
+  --gray-50:        #F7F6F3;   /* fondo página */
+  --gray-100:       #EDECEA;   /* superficies suaves */
+  --gray-200:       #D8D6D1;   /* bordes */
+  --gray-400:       #A09D97;   /* texto secundario */
+  --gray-700:       #4A4845;   /* texto cuerpo */
+  --gray-900:       #1C1B19;   /* texto principal */
+
+  --mustard:        #C89A2E;   /* mostaza principal */
+  --mustard-light:  #E8BF5A;   /* mostaza claro */
+  --mustard-dim:    #A07820;   /* mostaza oscuro */
+  --mustard-bg:     #FDF6E3;   /* fondo suave mostaza */
+
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:  0 6px 24px rgba(0,0,0,0.10);
+  --shadow-lg:  0 16px 48px rgba(0,0,0,0.14);
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  /* El color de fondo cambia vía JS al deslizar el carrusel */
+  background-color: #FEF3D0;
+  color: var(--gray-900);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.7s ease;
+}
+
+
+/* ══════════════════════════════════════════
+   HERO — PORTADA + LOGO + INFO
+══════════════════════════════════════════ */
+.hero { position: relative; }
+
+/* ── Imagen de portada full-width ──
+   ► PARA CAMBIAR ALTURA: editar el valor height aquí y en .cover-wrap img */
+.cover-wrap {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+  background: var(--gray-200);
+}
+
+/* ► PARA CAMBIAR IMAGEN: descomentar <img> en el HTML y reemplazar src */
+.cover-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Placeholder visual mientras no haya imagen real */
+.cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #E8E5DF 0%, #D0CCC4 100%);
+  color: var(--gray-400);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ── Zona de perfil: logo encima del borde inferior de la portada ── */
+.profile-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -48px;   /* sube la mitad del logo sobre la imagen */
+  position: relative;
+  z-index: 10;
+}
+
+/* ── Círculo del logo ──
+   ► PARA LOGO IMAGEN: reemplazar texto "GG" con <img src="logo.png" style="width:100%;height:100%;object-fit:cover">
+   ► PARA CAMBIAR INICIALES: editar "GG" en el HTML */
+.logo-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--mustard);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* ── Info de la empresa ──
+   ► PARA EDITAR: cambiar texto en los elementos HTML correspondientes */
+.company-info {
+  text-align: center;
+  padding: 0.85rem 1.5rem 1.5rem;
+}
+
+.company-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 7vw, 2.8rem);
+  font-weight: 900;
+  color: var(--gray-900);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* La palabra resaltada en mostaza */
+.company-name .accent { color: var(--mustard); }
+
+.company-divider {
+  width: 40px;
+  height: 3px;
+  background: var(--mustard);
+  border-radius: 2px;
+  margin: 0.75rem auto 0;
+}
+
+.company-desc {
+  margin-top: 0.7rem;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--gray-400);
+  line-height: 1.65;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ══════════════════════════════════════════
+   SECCIÓN CATÁLOGOS — CARRUSEL INFINITO
+══════════════════════════════════════════ */
+.catalogs-section { padding: 2.5rem 0 3rem; }
+
+.section-label {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mustard-dim);
+  margin-bottom: 1.5rem;
+}
+
+/* Ventana del carrusel — oculta el desborde */
+.carousel-viewport {
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.carousel-viewport:active { cursor: grabbing; }
+
+/* Track: fila de cards (originales + clones inyectados por JS) */
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 1.5rem 0;
+  transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+/* Clase que desactiva la transición para el salto infinito */
+.carousel-track.no-transition { transition: none !important; }
+
+/* ── Card individual ──
+   ► PARA AGREGAR CATÁLOGO: copiar un bloque .catalog-card en el HTML
+     y seguir las instrucciones del bloque HTML */
+.catalog-card {
+  flex: 0 0 72vw;
+  max-width: 280px;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--gray-200);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  box-shadow: var(--shadow-sm);
+  /* Cards no activas se encogen */
+  transform: scale(0.86);
+  opacity: 0.55;
+  transition:
+    transform  0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    opacity    0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+/* Card central activa */
+.catalog-card.active {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: var(--shadow-lg);
+  border-color: var(--mustard-light);
+}
+
+/* Imagen / ícono en la parte superior de la card */
+.card-img {
+  width: 100%;
+  height: 148px;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Badge "Local N" */
+.card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--mustard);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.card-body { padding: 1.1rem 1.2rem 1.4rem; }
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--gray-400);
+  line-height: 1.5;
+}
+
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.9rem;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mustard);
+  transition: gap 0.2s;
+}
+.catalog-card.active .card-cta { gap: 9px; }
+
+/* ── Puntos indicadores ── */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 1.4rem;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  cursor: pointer;
+  transition: all 0.35s;
+}
+
+.dot.active {
+  background: var(--mustard);
+  width: 22px;
+  border-radius: 4px;
+}
+
+/* ── Flechas: visibles solo en escritorio ── */
+.carousel-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.arrow-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  color: var(--gray-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.arrow-btn:hover { border-color: var(--mustard); color: var(--mustard); }
+
+/* Ocultar flechas en móvil */
+@media (max-width: 600px) {
+  .carousel-arrows { display: none; }
+}
+
+
+/* ══════════════════════════════════════════
+   REDES SOCIALES
+══════════════════════════════════════════ */
+.social-section {
+  padding: 2rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  border-top: 1.5px solid var(--gray-200);
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ► PARA AGREGAR RED SOCIAL: copiar un .social-btn en el HTML */
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 40px;
+  border: 1.5px solid var(--gray-200);
+  background: var(--white);
+  color: var(--gray-700);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s, background 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+.social-btn:hover {
+  border-color: var(--mustard-light);
+  background: var(--mustard-bg);
+  color: var(--mustard-dim);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--gray-400);
+  padding: 1.2rem 1.5rem 2rem;
+  border-top: 1px solid var(--gray-100);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+
+/* ══════════════════════════════════════════
+   ANIMACIONES DE ENTRADA
+══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cover-wrap       { animation: fadeUp 0.55s ease both; }
+.profile-zone     { animation: fadeUp 0.55s 0.10s ease both; }
+.company-info     { animation: fadeUp 0.55s 0.18s ease both; }
+.catalogs-section { animation: fadeUp 0.55s 0.28s ease both; }
+.social-section   { animation: fadeUp 0.55s 0.36s ease both; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="hero">
+
+  <!-- Imagen portada — full width, pegada al borde superior
+      ► PARA PONER TU IMAGEN: descomentá el <img> y cambiá el src.
+        Podés usar ruta relativa ("portada.jpg") o URL completa.
+        Cuando lo hagas, eliminá el div.cover-placeholder -->
+  <div class="cover-wrap">
+    <img src="Golden-Gray-img-portada.png" alt="Golden Gray portada">
+  </div>
+
+  <div class="profile-zone">
+    <div class="logo-circle"><img src="Golden-Gray.jpg" style="width:100%;height:100%;object-fit:cover">
+    </div>
+  </div>
+
+  <!-- Nombre y descripción
+       ► PARA EDITAR: cambiar el texto directamente aquí -->
+  <div class="company-info">
+    <h1 class="company-name">Grupo Golden <span class="accent">Gray</span></h1>
+    <div class="company-divider"></div>
+    <p class="company-desc">
+      Ferreterías, agropecuaria y herrería industrial.<br>
+      Explorá nuestros catálogos y encontrá todo lo que necesitás.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CATÁLOGOS — CARRUSEL INFINITO
+     ──────────────────────────────────────────
+     ► PARA AGREGAR UN CATÁLOGO:
+       1. Copiar todo el bloque  CARD  de abajo.
+       2. Cambiar: href, data-bg (índice del color en BG_COLORS en el JS),
+          el emoji o imagen, el texto del badge, título y descripción.
+       3. En el JS agregar el color del fondo al array BG_COLORS.
+══════════════════════════════════════════ -->
+<section class="catalogs-section">
+  <p class="section-label">Nuestros Catálogos</p>
+
+  <div class="carousel-viewport" id="carouselViewport">
+    <div class="carousel-track" id="carouselTrack">
+
+      <!-- CARD: Ferretería
+           href     → link al catálogo (reemplazar "#" con la URL real)
+           data-bg  → índice en BG_COLORS del JS (0 = amarillo cálido) -->
+      <a class="catalog-card" href="#" data-bg="0">
+        <div class="card-img">
+          <img src="Golden-Gray-img-ferreteria.png" alt="Golden Gray Ferreteria">
+          <span class="card-badge">Local 1</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Ferretería</div>
+          <div class="card-desc">Herramientas, materiales de construcción y más.</div>
+          <span class="card-cta">
+            Ver catálogo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- CARD: Agropecuaria
+           data-bg → 1 = verde suave -->
+      <a class="catalog-card" href="#" data-bg="1">
+        <div class="card-img">
+          <img src="Golden-Gray-img-agrotienda.png" alt="Golden Gray Agrotienda">
+          <span class="card-badge">Local 2</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Agropecuaria</div>
+          <div class="card-desc">Insumos agrícolas, veterinaria y campo.</div>
+          <span class="card-cta">
+            Ver catálogo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- CARD: Herrería Industrial
+           data-bg → 2 = azul acero -->
+      <a class="catalog-card" href="#" data-bg="2">
+        <div class="card-img">
+          <img src="Golden-Gray-img-herreria.png" alt="Golden Gray Herreria">
+          <span class="card-badge">Local 3</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Herrería Industrial</div>
+          <div class="card-desc">Estructura metálica, soldadura y fabricación a medida.</div>
+          <span class="card-cta">
+            Ver catálogo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Puntos indicadores (generados por JS) -->
+  <div class="carousel-dots" id="carouselDots"></div>
+
+  <!-- Flechas — se ocultan en móvil por CSS -->
+  <div class="carousel-arrows">
+    <button class="arrow-btn" id="prevBtn" aria-label="Anterior">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15,18 9,12 15,6"/>
+      </svg>
+    </button>
+    <button class="arrow-btn" id="nextBtn" aria-label="Siguiente">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9,18 15,12 9,6"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     REDES SOCIALES
+     ► PARA AGREGAR RED: copiar un .social-btn, cambiar href y el SVG del ícono.
+     ► PARA WHATSAPP: cambiar TUNUMERO por tu número con código de país (ej: 5491112345678)
+     ► PARA FACEBOOK: cambiar TUPAGINA por tu usuario o URL
+     ► PARA TIKTOK: cambiar TUUSUARIO por tu @ de TikTok
+══════════════════════════════════════════ -->
+<section class="social-section">
+  <p class="section-label" style="margin:0">Seguinos</p>
+  <div class="social-icons">
+
+    <a class="social-btn" href="https://wa.me/+584227285001" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.527 5.845L.057 23.886l6.208-1.449A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.001-1.372l-.359-.213-3.685.86.927-3.593-.234-.368A9.788 9.788 0 012.182 12c0-5.424 4.394-9.818 9.818-9.818 5.424 0 9.818 4.394 9.818 9.818S17.424 21.818 12 21.818z"/>
+      </svg>
+      WhatsApp
+    </a>
+
+    <a class="social-btn" href="https://facebook.com/TUPAGINA" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2">
+        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.532-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.883v2.258h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+      </svg>
+      Facebook
+    </a>
+
+    <a class="social-btn" href="https://tiktok.com/@mayorgoldengray" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+      </svg>
+      TikTok
+    </a>
+
+  </div>
+</section>
+
+
+<!-- ► FOOTER: cambiar año o nombre si es necesario -->
+<footer class="footer">
+  © 2026 Grupo Golden Gray · Todos los derechos reservados
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT — CARRUSEL INFINITO
+     ──────────────────────────────────────────
+     Funcionamiento:
+       1. Lee las cards originales del HTML.
+       2. Clona la primera al final y la última al inicio del track.
+          Esto crea el efecto infinito: al llegar al borde, salta
+          sin transición al original equivalente.
+       3. La card central recibe la clase .active (grande y visible).
+       4. Al cambiar de card, el fondo del body transiciona al color
+          definido en BG_COLORS.
+       5. Soporta drag (mouse) y swipe (touch).
+══════════════════════════════════════════ -->
+<script>
+(function () {
+
+  /* ── Colores de fondo por catálogo ──────────────────────────────
+     ► PARA AGREGAR CATÁLOGO: agregar el color al final del array.
+       El índice debe coincidir con el data-bg de la card en el HTML. */
+  const BG_COLORS = [
+    '#F5F5F5',   /* 0 → Ferretería      (amarillo cálido)   */
+    '#F5F5F5',   /* 1 → Agropecuaria    (verde suave)       */
+    '#F5F5F5',   /* 2 → Herrería        (azul acero)        */
+  ];
+
+  /* ── Referencias al DOM ── */
+  const viewport  = document.getElementById('carouselViewport');
+  const track     = document.getElementById('carouselTrack');
+  const dotsWrap  = document.getElementById('carouselDots');
+  const prevBtn   = document.getElementById('prevBtn');
+  const nextBtn   = document.getElementById('nextBtn');
+
+  /* ── Cards originales del HTML ── */
+  const origCards = Array.from(track.children);
+  const total     = origCards.length;
+
+  /* ── Crear clones para el efecto infinito ──
+     Se agrega al final una copia de la primera card
+     y al inicio una copia de la última card. */
+  const cloneHead = origCards[total - 1].cloneNode(true);  /* clon del último al inicio */
+  const cloneTail = origCards[0].cloneNode(true);           /* clon del primero al final */
+  cloneHead.setAttribute('aria-hidden', 'true');
+  cloneTail.setAttribute('aria-hidden', 'true');
+  track.insertBefore(cloneHead, origCards[0]);
+  track.appendChild(cloneTail);
+
+  /* Después de insertar clones, el track queda:
+     [ clon-último | orig0 | orig1 | ... | origN | clon-primero ]
+     El índice de posición de la primera card real es 1. */
+  const allCards = Array.from(track.children);
+  let current = 1;  /* arranca en la primera card real */
+
+  /* ── Calcular el paso (ancho de card + gap) ── */
+  function step() {
+    const gap = parseInt(getComputedStyle(track).gap) || 16;
+    return allCards[1].offsetWidth + gap;
+  }
+
+  /* ── Calcular el offset X para centrar la card en la pantalla ── */
+  function calcOffset(index) {
+    const center    = viewport.offsetWidth / 2;
+    const cardHalf  = allCards[index].offsetWidth / 2;
+    return center - cardHalf - index * step();
+  }
+
+  /* ── Mover el track a una posición ──
+     animate = false → sin transición (para el salto infinito) */
+  function moveTo(index, animate) {
+    if (!animate) track.classList.add('no-transition');
+    track.style.transform = `translateX(${calcOffset(index)}px)`;
+    if (!animate) {
+      void track.offsetHeight; /* fuerza reflow */
+      track.classList.remove('no-transition');
+    }
+  }
+
+  /* ── Actualizar visual: clase activa, dots y color de fondo ── */
+  function updateUI(index) {
+    allCards.forEach((c, i) => c.classList.toggle('active', i === index));
+
+    /* Índice real (0-based) de la card activa */
+    const real = (index - 1 + total) % total;
+
+    /* Actualizar dots */
+    Array.from(dotsWrap.children).forEach((d, i) =>
+      d.classList.toggle('active', i === real)
+    );
+
+    /* Color de fondo según data-bg de la card activa */
+    const bg = BG_COLORS[real] ?? '#F7F6F3';
+    document.body.style.backgroundColor = bg;
+  }
+
+  /* ── Navegar a un índice ── */
+  function goTo(index) {
+    current = index;
+    moveTo(current, true);
+    updateUI(current);
+  }
+
+  /* ── Salto infinito al terminar la transición ──
+     Si llegamos a un clon, saltamos sin animación al original. */
+  track.addEventListener('transitionend', () => {
+    if (current === 0) {
+      current = total;
+      moveTo(current, false);
+    } else if (current === total + 1) {
+      current = 1;
+      moveTo(current, false);
+    }
+    updateUI(current);
+  });
+
+  /* ── Flechas de navegación ── */
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+
+  /* ── Drag con mouse ── */
+  let dragX   = 0;
+  let dragging = false;
+
+  viewport.addEventListener('mousedown', e => {
+    dragging = true;
+    dragX = e.clientX;
+    track.style.transition = 'none';
+  });
+
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - dragX;
+    track.style.transform = `translateX(${calcOffset(current) + dx}px)`;
+  });
+
+  window.addEventListener('mouseup', e => {
+    if (!dragging) return;
+    dragging = false;
+    track.style.transition = '';
+    const dx = e.clientX - dragX;
+    if      (dx < -50) goTo(current + 1);
+    else if (dx >  50) goTo(current - 1);
+    else               goTo(current);
+  });
+
+  /* ── Swipe táctil ── */
+  let touchX = 0;
+
+  viewport.addEventListener('touchstart', e => {
+    touchX = e.touches[0].clientX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if      (dx < -50) goTo(current + 1);
+    else if (dx >  50) goTo(current - 1);
+  }, { passive: true });
+
+  /* ── Generar dots dinámicamente ──
+     Un dot por cada card original. */
+  origCards.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i + 1)); /* +1 por el clon al inicio */
+    dotsWrap.appendChild(dot);
+  });
+
+  /* ── Inicializar ── */
+  moveTo(current, false);
+  updateUI(current);
+
+  /* Re-centrar si cambia el tamaño de la ventana */
+  window.addEventListener('resize', () => moveTo(current, false));
+
+})();
+</script>
+</body>
+</html>
