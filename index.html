@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Golden Gray</title>
 <link rel="shortcut icon" href="Golden-Gray-Logo-Recortado.png" type="image/x-icon">
-    
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet"/>
 
     <!-- Metaetiquetas de Open Graph -->
     <meta property="og:title" content="Golden Gray">
@@ -30,7 +27,8 @@
      Playfair Display → títulos elegantes
      DM Sans         → cuerpo limpio y legible
 ══════════════════════════════════════════ -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
 <style>
 /* ══════════════════════════════════════════
@@ -86,7 +84,7 @@ body {
    ► PARA CAMBIAR ALTURA: editar el valor height aquí y en .cover-wrap img */
 .cover-wrap {
   width: 100%;
-  height: 260px;
+  height: 200px;
   position: relative;
   overflow: hidden;
   background: var(--gray-200);
@@ -140,7 +138,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Playfair Display', serif;
   font-size: 30px;
   font-weight: 900;
   color: var(--mustard);
@@ -156,7 +153,6 @@ body {
 }
 
 .company-name {
-  font-family: 'Playfair Display', serif;
   font-size: clamp(1.8rem, 7vw, 2.8rem);
   font-weight: 900;
   color: var(--gray-900);
@@ -181,7 +177,7 @@ body {
   font-weight: 300;
   color: var(--gray-400);
   line-height: 1.65;
-  max-width: 340px;
+  max-width: 540px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -258,7 +254,7 @@ body {
 /* Imagen / ícono en la parte superior de la card */
 .card-img {
   width: 100%;
-  height: 148px;
+  height: 200px;
   background: var(--gray-100);
   display: flex;
   align-items: center;
@@ -286,7 +282,6 @@ body {
 .card-body { padding: 1.1rem 1.2rem 1.4rem; }
 
 .card-title {
-  font-family: 'Playfair Display', serif;
   font-size: 19px;
   font-weight: 700;
   color: var(--gray-900);
@@ -471,13 +466,13 @@ body {
 
 
 <!-- ══════════════════════════════════════════
-     CATÁLOGOS — CARRUSEL INFINITO
-     ──────────────────────────────────────────
-     ► PARA AGREGAR UN CATÁLOGO:
-       1. Copiar todo el bloque  CARD  de abajo.
-       2. Cambiar: href, data-bg (índice del color en BG_COLORS en el JS),
+    CATÁLOGOS — CARRUSEL INFINITO
+    ──────────────────────────────────────────
+    ► PARA AGREGAR UN CATÁLOGO:
+      1. Copiar todo el bloque  CARD  de abajo.
+      2. Cambiar: href, data-bg (índice del color en BG_COLORS en el JS),
           el emoji o imagen, el texto del badge, título y descripción.
-       3. En el JS agregar el color del fondo al array BG_COLORS.
+      3. En el JS agregar el color del fondo al array BG_COLORS.
 ══════════════════════════════════════════ -->
 <section class="catalogs-section">
   <p class="section-label">Nuestros Catálogos</p>
@@ -486,9 +481,9 @@ body {
     <div class="carousel-track" id="carouselTrack">
 
       <!-- CARD: Ferretería
-           href     → link al catálogo (reemplazar "#" con la URL real)
-           data-bg  → índice en BG_COLORS del JS (0 = amarillo cálido) -->
-      <a class="catalog-card" href="#" data-bg="0">
+          href     → link al catálogo (reemplazar "#" con la URL real)
+          data-bg  → índice en BG_COLORS del JS (0 = amarillo cálido) -->
+      <a class="catalog-card" href="https://newjosetbj2005-cyber.github.io/Actualizaciones-Catalogo-Productos/" data-bg="0">
         <div class="card-img">
           <img src="Golden-Gray-img-ferreteria.png" alt="Golden Gray Ferreteria">
           <span class="card-badge">Local 1</span>
@@ -506,7 +501,7 @@ body {
       </a>
 
       <!-- CARD: Agropecuaria
-           data-bg → 1 = verde suave -->
+          data-bg → 1 = verde suave -->
       <a class="catalog-card" href="#" data-bg="1">
         <div class="card-img">
           <img src="Golden-Gray-img-agrotienda.png" alt="Golden Gray Agrotienda">
@@ -525,7 +520,7 @@ body {
       </a>
 
       <!-- CARD: Herrería Industrial
-           data-bg → 2 = azul acero -->
+          data-bg → 2 = azul acero -->
       <a class="catalog-card" href="#" data-bg="2">
         <div class="card-img">
           <img src="Golden-Gray-img-herreria.png" alt="Golden Gray Herreria">
@@ -576,7 +571,7 @@ body {
   <p class="section-label" style="margin:0">Seguinos</p>
   <div class="social-icons">
 
-    <a class="social-btn" href="https://wa.me/+584227285001" target="_blank" rel="noopener">
+    <a class="social-btn" href="https://wa.me/+584144713628" target="_blank" rel="noopener">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
         <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.527 5.845L.057 23.886l6.208-1.449A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.001-1.372l-.359-.213-3.685.86.927-3.593-.234-.368A9.788 9.788 0 012.182 12c0-5.424 4.394-9.818 9.818-9.818 5.424 0 9.818 4.394 9.818 9.818S17.424 21.818 12 21.818z"/>
@@ -584,14 +579,7 @@ body {
       WhatsApp
     </a>
 
-    <a class="social-btn" href="https://facebook.com/TUPAGINA" target="_blank" rel="noopener">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2">
-        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.532-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.883v2.258h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
-      </svg>
-      Facebook
-    </a>
-
-    <a class="social-btn" href="https://tiktok.com/@mayorgoldengray" target="_blank" rel="noopener">
+    <a class="social-btn" href="https://www.tiktok.com/@mayorgoldengray" target="_blank" rel="noopener">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
       </svg>
